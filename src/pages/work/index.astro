@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import { projects, pad } from '../../data/projects';
+---
+<Base title="Work" scene="SCENE 02 · WORK">
+  <div class="page">
+    <div class="page-head">
+      <h1 class="h2">SELECTED WORK</h1>
+      <p class="px steel small">{pad(projects.length)} PROJECTS · 2000—2002 · CLICK TO LAUNCH</p>
+    </div>
+    <ul class="grid-work">
+      {projects.map((p, i) => (
+        <li>
+          <a href={`/work/${p.slug}`} class="card" data-sfx="hover">
+            <Placeholder label="project still" num={pad(i + 1)} class="card-ph" />
+            <span class="card-meta">
+              <span class="card-text">
+                <span class="card-title px">{p.title}</span>
+                <span class="card-type">{p.type}</span>
+              </span>
+              <span class="px cyan small">{p.year}</span>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

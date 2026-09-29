@@ -1,0 +1,62 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props { title?: string; scene: string; description?: string }
+const { title, scene, description = 'Kai Morrow — interactive designer. Interface, motion, code.' } = Astro.props;
+
+const anim = {
+  old: { name: 'nwOut', duration: '0.2s', easing: 'linear', fillMode: 'both' },
+  new: { name: 'nwWipe', duration: '0.7s', easing: 'cubic-bezier(.7,0,.2,1)', fillMode: 'both' },
+};
+const wipe = { forwards: anim, backwards: anim };
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title ? `${title} — NULL//WAVE` : 'NULL//WAVE — Kai Morrow'}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Silkscreen&display=swap" rel="stylesheet" />
+    <script is:inline>
+      if (!sessionStorage.getItem('nw-loaded')) document.documentElement.setAttribute('data-preload', '');
+    </script>
+    <ClientRouter />
+  </head>
+  <body>
+    <div class="stage">
+      <div id="preloader" class="preloader" transition:persist aria-hidden="true">
+        <div class="pre-rings">
+          <span class="ring ring-dash spin-slow"></span>
+          <span class="ring ring-arc spin-fast-r"></span>
+          <span id="pre-pct" class="pre-pct">00</span>
+        </div>
+        <p class="px cyan">LOADING NULLWAVE.SWF</p>
+        <div class="pre-bar"><span id="pre-fill"></span></div>
+        <p class="px steel"><span id="pre-kb">0</span> KB OF 214 KB</p>
+        <button id="pre-skip" class="pre-skip px" type="button">[ SKIP INTRO ]</button>
+        <p class="pre-note">Best viewed at 1024×768 with Macromedia Flash Player 6</p>
+      </div>
+
+      <Header />
+      <aside class="rail" aria-hidden="true">
+        <span></span>
+        <span class="rail-label px">{scene}</span>
+        <span class="rail-sq"></span>
+      </aside>
+      <main class="content" transition:animate={wipe}>
+        <span id="coords" class="coords px" aria-hidden="true">X:000 Y:000</span>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>

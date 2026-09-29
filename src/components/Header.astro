@@ -1,0 +1,29 @@
+---
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const items = [
+  ['/', 'Home'],
+  ['/work', 'Work'],
+  ['/about', 'About'],
+  ['/contact', 'Contact'],
+];
+const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+<header class="topbar">
+  <a href="/" class="brand" aria-label="Nullwave home">
+    <span class="orb"></span>
+    <span class="brand-text">
+      <span class="logo">NULL<em>//</em>WAVE</span>
+      <span class="ver px">INTERACTIVE PORTFOLIO v2.0.2</span>
+    </span>
+  </a>
+  <nav class="nav" aria-label="Main">
+    {items.map(([href, label]) => (
+      <a
+        href={href}
+        class:list={['btn', 'px', isActive(href) ? 'btn-blue' : 'btn-silver']}
+        aria-current={isActive(href) ? 'page' : undefined}
+        data-sfx="hover"
+      >{label}</a>
+    ))}
+  </nav>
+</header>

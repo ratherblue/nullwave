@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import { projects, pad, type Project } from '../../data/projects';
+
+export function getStaticPaths() {
+  return projects.map((p, i) => ({
+    params: { slug: p.slug },
+    props: { p, i, next: projects[(i + 1) % projects.length] },
+  }));
+}
+interface Props { p: Project; i: number; next: Project }
+const { p, i, next } = Astro.props;
+---
+<Base title={p.title} scene="SCENE 02 · WORK" description={p.desc}>
+  <article class="page detail">
+    <nav class="detail-nav px">
+      <a href="/work" class="textlink">‹ Back to index</a>
+      <span class="dim small">PROJECT {pad(i + 1)} / {pad(projects.length)}</span>
+      <a href={`/work/${next.slug}`} class="textlink">Next ›</a>
+    </nav>
+    <div class="detail-grid">
+      <Placeholder label={`${p.title} — screen capture`} sweep corners class="detail-ph" />
+      <div class="detail-body">
+        <h1 class="h1">{p.title}</h1>
+        <p class="px cyan">{p.type} · {p.year}</p>
+        <p class="body">{p.desc}</p>
+        <dl class="spec">
+          <div><dt>Client</dt><dd>{p.client}</dd></div>
+          <div><dt>Tools</dt><dd>{p.tools}</dd></div>
+          <div><dt>Role</dt><dd>{p.role}</dd></div>
+        </dl>
+        {p.url && <a href={p.url} class="btn btn-blue px" target="_blank" rel="noopener" data-sfx="hover">Launch site ↗</a>}
+      </div>
+    </div>
+  </article>
+</Base>

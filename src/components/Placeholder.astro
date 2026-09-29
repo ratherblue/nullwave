@@ -1,0 +1,11 @@
+---
+// Swap for <img> once real imagery exists.
+interface Props { label: string; num?: string; sweep?: boolean; corners?: boolean; class?: string }
+const { label, num, sweep = false, corners = false, class: cls } = Astro.props;
+---
+<div class:list={['ph', cls]}>
+  <span class="ph-label">[ {label} ]</span>
+  {num && <span class="ph-num">{num}</span>}
+  {sweep && <span class="sweep"></span>}
+  {corners && <><span class="corner tl"></span><span class="corner br"></span></>}
+</div>
