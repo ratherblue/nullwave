@@ -5,30 +5,30 @@ import Window from '../components/Window.astro';
 // Create a form at formspree.io and paste its ID here.
 const FORM_ACTION = 'https://formspree.io/f/YOUR_FORM_ID';
 ---
-<Base title="Contact" scene="SCENE 04 · CONTACT">
+<Base title="Contact" scene="Scene 04 · Contact">
   <div class="page contact">
     <div class="contact-info">
-      <p class="eyebrow px">// OPEN CHANNEL</p>
-      <h1 class="h1 xl">SAY<br />HELLO.</h1>
+      <p class="eyebrow px">// Open channel</p>
+      <h1 class="h1 xl">Say<br />hello.</h1>
       <p class="body">Projects, collaborations, or just to tell me the preloader took too long. I read everything.</p>
       <dl class="spec">
-        <div><dt class="px">EMAIL</dt><dd><a href="mailto:kai@nullwave.net">kai@nullwave.net</a></dd></div>
+        <div><dt class="px">Email</dt><dd><a href="mailto:kai@nullwave.net">kai@nullwave.net</a></dd></div>
         <div><dt class="px">ICQ</dt><dd>104 552 871</dd></div>
-        <div><dt class="px">STUDIO</dt><dd>Rotterdam, NL</dd></div>
+        <div><dt class="px">Studio</dt><dd>Rotterdam, NL</dd></div>
       </dl>
     </div>
-    <Window title="TRANSMIT.EXE" controls chrome class="transmit">
+    <Window title="transmit.exe" controls chrome class="transmit">
       <form class="form" action={FORM_ACTION} method="POST" data-transmit>
-        <label><span class="px">NAME</span><input name="name" autocomplete="name" required /></label>
-        <label><span class="px">EMAIL</span><input name="email" type="email" autocomplete="email" required /></label>
-        <label><span class="px">MESSAGE</span><textarea name="message" rows="6" required></textarea></label>
+        <label><span class="px">Name</span><input name="name" autocomplete="name" required /></label>
+        <label><span class="px">Email</span><input name="email" type="email" autocomplete="email" required /></label>
+        <label><span class="px">Message</span><textarea name="message" rows="6" required></textarea></label>
         <div class="form-actions">
           <button type="submit" class="btn btn-blue px" data-sfx="hover">Send ›</button>
         </div>
       </form>
       <div class="sent" role="status">
         <div class="sent-orb"><span class="ring ring-dash spin-slow"></span><span class="core"></span></div>
-        <p class="px cyan">TRANSMISSION SENT</p>
+        <p class="px cyan">Transmission sent</p>
         <p class="body">Thanks — I'll reply within 48 hours.</p>
         <button type="button" class="textlink px" data-reset>[ Send another ]</button>
       </div>

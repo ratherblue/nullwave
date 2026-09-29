@@ -4,29 +4,29 @@ import Placeholder from '../components/Placeholder.astro';
 import Window from '../components/Window.astro';
 
 const skills: [string, number][] = [
-  ['FLASH / ACTIONSCRIPT', 95],
-  ['MOTION DESIGN', 90],
-  ['PHOTOSHOP', 85],
-  ['ILLUSTRATOR', 80],
+  ['Flash / ActionScript', 95],
+  ['Motion design', 90],
+  ['Photoshop', 85],
+  ['Illustrator', 80],
   ['HTML / DHTML', 70],
-  ['3D STUDIO', 55],
+  ['3D Studio', 55],
 ];
 ---
-<Base title="About" scene="SCENE 03 · ABOUT">
+<Base title="About" scene="Scene 03 · About">
   <div class="page about">
     <figure class="about-fig">
       <Placeholder label="portrait" sweep class="portrait" />
-      <figcaption class="px dim small">FIG.01 — THE DESIGNER, 2002</figcaption>
+      <figcaption class="px dim small">Fig.01 — The designer, 2002</figcaption>
     </figure>
     <div class="about-copy">
-      <p class="eyebrow px">// ABOUT.ME</p>
+      <p class="eyebrow px">// about.me</p>
       <h1 class="h2">I make screens that move.</h1>
       <p class="body">I started animating stick figures in Flash 4 and never really stopped. Five years later I design and build interactive experiences for record labels, architects and anyone who wants their website to feel like a place rather than a page.</p>
       <p class="body">My process is equal parts sketchbook and timeline: rough ideas on paper, then straight into keyframes until the motion feels right. I care about sound, loading states and the small click that tells you something happened.</p>
       <p class="body">Currently available for freelance from <span class="cyan">October 2002</span>.</p>
     </div>
     <div class="about-side">
-      <Window title="SKILLS.SYS">
+      <Window title="skills.sys">
         <ul class="skills">
           {skills.map(([name, pct], i) => (
             <li>
@@ -36,7 +36,7 @@ const skills: [string, number][] = [
           ))}
         </ul>
       </Window>
-      <Window title="RECOGNITION">
+      <Window title="Recognition">
         <ul class="plain">
           <li>Site of the Day ×3</li>
           <li>Vector Night speaker, 2002</li>

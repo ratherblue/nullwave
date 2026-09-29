@@ -28,7 +28,7 @@ function syncSound() {
   if (!b) return;
   const on = soundOn();
   b.setAttribute('aria-pressed', String(on));
-  b.querySelector('.sound-label')!.textContent = on ? 'SOUND ON' : 'SOUND OFF';
+  b.querySelector('.sound-label')!.textContent = on ? 'Sound on' : 'Sound off';
 }
 
 // UI sounds (browsers only allow audio after the first user gesture, which these are)

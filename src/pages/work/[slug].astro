@@ -12,11 +12,11 @@ export function getStaticPaths() {
 interface Props { p: Project; i: number; next: Project }
 const { p, i, next } = Astro.props;
 ---
-<Base title={p.title} scene="SCENE 02 · WORK" description={p.desc}>
+<Base title={p.title} scene="Scene 02 · Work" description={p.desc}>
   <article class="page detail">
     <nav class="detail-nav px">
       <a href="/work" class="textlink">‹ Back to index</a>
-      <span class="dim small">PROJECT {pad(i + 1)} / {pad(projects.length)}</span>
+      <span class="dim small">Project {pad(i + 1)} / {pad(projects.length)}</span>
       <a href={`/work/${next.slug}`} class="textlink">Next ›</a>
     </nav>
     <div class="detail-grid">
