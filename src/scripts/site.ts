@@ -86,7 +86,10 @@ function runPreloader() {
     pct.textContent = String(p).padStart(2, '0');
     fill.style.width = p + '%';
     kb.textContent = String(Math.round((214 * p) / 100));
-    if (p >= 100) { clearInterval(timer); setTimeout(done, 450); }
+    if (p >= 100) {
+      clearInterval(timer);
+      setTimeout(done, 450);
+    }
   }, 55);
 }
 runPreloader();

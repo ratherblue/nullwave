@@ -6,9 +6,15 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9",
+    "prettier-plugin-astro": "^1.1.0"
   }
 }

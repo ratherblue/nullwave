@@ -4,7 +4,11 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
-interface Props { title?: string; scene: string; description?: string }
+interface Props {
+  title?: string;
+  scene: string;
+  description?: string;
+}
 const { title, scene, description = 'Kai Morrow — interactive designer. Interface, motion, code.' } = Astro.props;
 
 const anim = {
@@ -13,6 +17,7 @@ const anim = {
 };
 const wipe = { forwards: anim, backwards: anim };
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -34,12 +39,20 @@ const wipe = { forwards: anim, backwards: anim };
         <div class="pre-rings">
           <span class="ring ring-dash spin-slow"></span>
           <span class="ring ring-arc spin-fast-r"></span>
-          <span id="pre-pct" class="pre-pct">00</span>
+          <span id="pre-pct" class="pre-pct">
+            00
+          </span>
         </div>
         <p class="px cyan">Loading nullwave.swf</p>
-        <div class="pre-bar"><span id="pre-fill"></span></div>
-        <p class="px steel"><span id="pre-kb">0</span> KB of 214 KB</p>
-        <button id="pre-skip" class="pre-skip px" type="button">[ Skip intro ]</button>
+        <div class="pre-bar">
+          <span id="pre-fill"></span>
+        </div>
+        <p class="px steel">
+          <span id="pre-kb">0</span> KB of 214 KB
+        </p>
+        <button id="pre-skip" class="pre-skip px" type="button">
+          [ Skip intro ]
+        </button>
         <p class="pre-note">Best viewed at 1024×768 with Macromedia Flash Player 6</p>
       </div>
 
@@ -50,7 +63,9 @@ const wipe = { forwards: anim, backwards: anim };
         <span class="rail-sq"></span>
       </aside>
       <main class="content" transition:animate={wipe}>
-        <span id="coords" class="coords px" aria-hidden="true">X:000 Y:000</span>
+        <span id="coords" class="coords px" aria-hidden="true">
+          X:000 Y:000
+        </span>
         <slot />
       </main>
       <Footer />

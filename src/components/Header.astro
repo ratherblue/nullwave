@@ -8,11 +8,14 @@ const items = [
 ];
 const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
+
 <header class="topbar">
   <a href="/" class="brand" aria-label="Nullwave home">
     <span class="orb"></span>
     <span class="brand-text">
-      <span class="logo">Null<em>//</em>Wave</span>
+      <span class="logo">
+        Null<em>//</em>Wave
+      </span>
       <span class="ver px">Interactive portfolio v2.0.2</span>
     </span>
   </a>
@@ -23,7 +26,9 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
         class:list={['btn', 'px', isActive(href) ? 'btn-blue' : 'btn-silver']}
         aria-current={isActive(href) ? 'page' : undefined}
         data-sfx="hover"
-      >{label}</a>
+      >
+        {label}
+      </a>
     ))}
   </nav>
 </header>

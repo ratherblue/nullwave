@@ -9,22 +9,39 @@ const news = [
   ['05.02', 'Site v2 rebuilt in Flash MX.'],
 ];
 ---
+
 <Base scene="Scene 01 · Home">
   <div class="home">
     <Rings />
     <div class="hero">
       <p class="eyebrow px">// Welcome to the experience</p>
-      <h1 class="display flicker">Kai<br />Morrow</h1>
+      <h1 class="display flicker">
+        Kai
+        <br />
+        Morrow
+      </h1>
       <p class="tagline px">Interface · Motion · Code</p>
-      <p class="lede">Independent interactive designer building microsites, kiosks and motion idents out of vectors, ActionScript and too much coffee. Based somewhere between the timeline and the stage.</p>
+      <p class="lede">
+        Independent interactive designer building microsites, kiosks and motion idents out of vectors, ActionScript and
+        too much coffee. Based somewhere between the timeline and the stage.
+      </p>
       <div class="actions">
-        <a href="/work" class="btn btn-blue btn-lg px" data-sfx="hover">View work ›</a>
-        <a href="/contact" class="btn btn-ghost btn-lg px" data-sfx="hover">Get in touch</a>
+        <a href="/work" class="btn btn-blue btn-lg px" data-sfx="hover">
+          View work ›
+        </a>
+        <a href="/contact" class="btn btn-ghost btn-lg px" data-sfx="hover">
+          Get in touch
+        </a>
       </div>
     </div>
     <Window title="news.txt" class="news">
       <ul class="news-list">
-        {news.map(([d, t]) => <li><time class="px">{d}</time><span>{t}</span></li>)}
+        {news.map(([d, t]) => (
+          <li>
+            <time class="px">{d}</time>
+            <span>{t}</span>
+          </li>
+        ))}
       </ul>
     </Window>
   </div>

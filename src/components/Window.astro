@@ -1,7 +1,13 @@
 ---
-interface Props { title: string; controls?: boolean; chrome?: boolean; class?: string }
+interface Props {
+  title: string;
+  controls?: boolean;
+  chrome?: boolean;
+  class?: string;
+}
 const { title, controls = false, chrome = false, class: cls } = Astro.props;
 ---
+
 <section class:list={['window', cls]}>
   <div class:list={['window-title', 'px', chrome && 'is-chrome']}>
     <span>{title}</span>
