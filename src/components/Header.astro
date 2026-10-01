@@ -1,16 +1,17 @@
 ---
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+import { href, unbase } from '../lib/url';
+const path = unbase(Astro.url.pathname).replace(/\/$/, '') || '/';
 const items = [
   ['/', 'Home'],
   ['/work', 'Work'],
   ['/about', 'About'],
   ['/contact', 'Contact'],
 ];
-const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+const isActive = (p: string) => (p === '/' ? path === '/' : path.startsWith(p));
 ---
 
 <header class="topbar">
-  <a href="/" class="brand" aria-label="Nullwave home">
+  <a href={href('/')} class="brand" aria-label="Nullwave home">
     <span class="orb"></span>
     <span class="brand-text">
       <span class="logo">
@@ -20,11 +21,11 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path.startsWit
     </span>
   </a>
   <nav class="nav" aria-label="Main">
-    {items.map(([href, label]) => (
+    {items.map(([item, label]) => (
       <a
-        href={href}
-        class:list={['btn', 'px', isActive(href) ? 'btn-blue' : 'btn-silver']}
-        aria-current={isActive(href) ? 'page' : undefined}
+        href={href(item)}
+        class:list={['btn', 'px', isActive(item) ? 'btn-blue' : 'btn-silver']}
+        aria-current={isActive(item) ? 'page' : undefined}
         data-sfx="hover"
       >
         {label}
