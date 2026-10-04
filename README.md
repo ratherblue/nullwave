@@ -4,6 +4,8 @@ A 2002-Flash-style portfolio built as a real, fast, static site.
 
 Note: My name isn't Kai Morrow, this is just a fake name for demo purposes
 
+https://ratherblue.github.io/nullwave/
+
 ## Run
 
 ```
